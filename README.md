@@ -2,6 +2,8 @@
 
 Website do projeto **5 Leis do Nativo Digital**, desenvolvido para a disciplina / módulo *Desafios da Profissão*.
 
+🔗 **Acesse o site publicado:** [https://lucasputon.github.io/site-5-leis-nativo-digital/](https://lucasputon.github.io/site-5-leis-nativo-digital/)
+
 ---
 
 ## 📁 Estrutura de Arquivos
