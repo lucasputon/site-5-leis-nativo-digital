@@ -145,6 +145,29 @@ body[data-theme="5"] .bg-5 {
   justify-content: space-between;
 }
 
+/* Cabeçalho integrado do trabalho apenas no Card 1 */
+.project-brand-header {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+.project-brand-title {
+  font-size: 0.95rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: rgba(255, 255, 255, 0.85);
+  white-space: nowrap;
+}
+
+.project-brand-line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.28) 0%, transparent 100%);
+}
+
 .card-body {
   display: grid;
   grid-template-columns: 1.45fr 0.55fr;
@@ -269,8 +292,26 @@ code {
 }
 
 /* ==========================================================================
-   MENU FLUTUANTE DISCRETO
+   BOTÃO SEPARADO DE IDIOMA + MENU FLUTUANTE (MESMO DESIGN VISUAL)
    ========================================================================== */
+.hidden-lang {
+  display: none !important;
+}
+
+.lang-floating-wrap {
+  position: fixed;
+  right: 1.75rem;
+  top: 1.75rem;
+  z-index: 100;
+  background: rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(10px);
+  padding: 0.5rem;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .floating-menu {
   position: fixed;
   right: 1.75rem;
@@ -279,6 +320,7 @@ code {
   z-index: 100;
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 0.7rem;
   background: rgba(0, 0, 0, 0.25);
   backdrop-filter: blur(10px);
@@ -286,7 +328,8 @@ code {
   border-radius: 999px;
 }
 
-.menu-dot {
+.menu-dot,
+.lang-dot {
   position: relative;
   width: 36px;
   height: 36px;
@@ -295,7 +338,7 @@ code {
   background: rgba(255, 255, 255, 0.16);
   color: rgba(255, 255, 255, 0.85);
   font-family: var(--font-family);
-  font-size: 0.85rem;
+  font-size: 0.82rem;
   font-weight: 700;
   cursor: pointer;
   display: flex;
@@ -304,12 +347,14 @@ code {
   transition: all 0.25s ease;
 }
 
-.menu-dot:hover {
+.menu-dot:hover,
+.lang-dot:hover {
   background: rgba(255, 255, 255, 0.32);
   color: #ffffff;
 }
 
-.menu-dot.active {
+.menu-dot.active,
+.lang-dot:active {
   background: #ffffff;
   color: #1e293b;
   transform: scale(1.12);
@@ -331,7 +376,8 @@ code {
   transition: all 0.2s ease;
 }
 
-.menu-dot:hover .dot-tooltip {
+.menu-dot:hover .dot-tooltip,
+.lang-dot:hover .dot-tooltip {
   opacity: 1;
   transform: translateX(0);
 }
@@ -407,6 +453,12 @@ code {
   .theme-icon svg {
     width: 72px;
     height: 72px;
+  }
+
+  .lang-floating-wrap {
+    top: 1rem;
+    right: 1rem;
+    padding: 0.4rem;
   }
 
   .floating-menu {

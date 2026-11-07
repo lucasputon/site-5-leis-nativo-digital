@@ -9,7 +9,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
-<body data-theme="1">
+<body data-theme="1" data-lang="pt">
 
   <!-- Camadas de Degradê de Página Inteira (Transição Suave entre os 5 Temas) -->
   <div class="gradient-stage" aria-hidden="true">
@@ -20,27 +20,35 @@
     <div class="bg-gradient bg-5"></div>
   </div>
 
+  <!-- Botão Flutuante Separado de Idioma (Mesmo Design dos Botões 1 a 5) -->
+  <div class="lang-floating-wrap">
+    <button class="lang-dot" id="lang-toggle" type="button" aria-label="Mudar idioma / Switch language">
+      <span class="dot-num" id="lang-label">PT</span>
+      <span class="dot-tooltip" id="lang-tooltip">English (EN)</span>
+    </button>
+  </div>
+
   <!-- Menu Flutuante Minimalista -->
   <nav class="floating-menu" aria-label="Navegação entre os 5 tópicos">
     <button class="menu-dot active" data-target="topico-1" data-theme="1" aria-label="1. Senhas Fortes">
       <span class="dot-num">1</span>
-      <span class="dot-tooltip">Senhas Fortes</span>
+      <span class="dot-tooltip" data-pt="Senhas Fortes" data-en="Strong Passwords">Senhas Fortes</span>
     </button>
     <button class="menu-dot" data-target="topico-2" data-theme="2" aria-label="2. Verificação em Duas Etapas">
       <span class="dot-num">2</span>
-      <span class="dot-tooltip">2 Fatores (2FA)</span>
+      <span class="dot-tooltip" data-pt="2 Fatores (2FA)" data-en="Two-Factor (2FA)">2 Fatores (2FA)</span>
     </button>
     <button class="menu-dot" data-target="topico-3" data-theme="3" aria-label="3. Links e URLs">
       <span class="dot-num">3</span>
-      <span class="dot-tooltip">Links e URLs</span>
+      <span class="dot-tooltip" data-pt="Links e URLs" data-en="Links &amp; URLs">Links e URLs</span>
     </button>
     <button class="menu-dot" data-target="topico-4" data-theme="4" aria-label="4. Extensões de Arquivos">
       <span class="dot-num">4</span>
-      <span class="dot-tooltip">Extensões</span>
+      <span class="dot-tooltip" data-pt="Extensões" data-en="File Extensions">Extensões</span>
     </button>
     <button class="menu-dot" data-target="topico-5" data-theme="5" aria-label="5. Espaço no E-mail">
       <span class="dot-num">5</span>
-      <span class="dot-tooltip">Espaço no E-mail</span>
+      <span class="dot-tooltip" data-pt="Espaço no E-mail" data-en="Email Storage">Espaço no E-mail</span>
     </button>
   </nav>
 
@@ -52,8 +60,15 @@
          ================================================================= -->
     <section class="card-section is-focused" id="topico-1" data-index="1" data-theme="1">
       <article class="full-card">
+        <!-- Título do Trabalho Integrado Somente no Primeiro Card -->
+        <header class="project-brand-header">
+          <span class="project-brand-title" data-i18n="brandTitle">5 Leis do Nativo Digital</span>
+          <span class="project-brand-line" aria-hidden="true"></span>
+        </header>
+
         <div class="card-body">
-          <div class="text-column">
+          <!-- Versão em Português -->
+          <div class="text-column lang-content" data-lang-block="pt">
             <h1>Senhas Fortes e Únicas</h1>
             <p class="objective"><strong>Objetivo:</strong> Proteger suas contas pessoais e bancárias contra invasões.</p>
 
@@ -72,6 +87,26 @@
             </div>
           </div>
 
+          <!-- Versão em Inglês -->
+          <div class="text-column lang-content hidden-lang" data-lang-block="en">
+            <h1>Strong and Unique Passwords</h1>
+            <p class="objective"><strong>Goal:</strong> Protect your personal and bank accounts against unauthorized access.</p>
+
+            <div class="prose">
+              <p>A password is the key to your digital home. A strong password mixes different types of characters so that no one (not even computer programs) can guess it.</p>
+
+              <h3>How to create and protect your password:</h3>
+              <ul>
+                <li><strong>Mix it all up:</strong> Combine uppercase letters (<code>A-Z</code>), lowercase letters (<code>a-z</code>), numbers (<code>0-9</code>), and symbols (<code>!</code>, <code>@</code>, <code>#</code>, <code>$</code>). <em>Example: instead of <code>Maria1980</code>, use something like <code>M@ria#Sun26!</code></em>.</li>
+                <li><strong>Avoid obvious info:</strong> Never use birthdates, children's names, license plates, or simple sequences like <code>123456</code>.</li>
+                <li><strong>Do not reuse passwords:</strong> If you use the same password everywhere and one small website suffers a data leak, scammers will gain access to your email and bank accounts.</li>
+                <li><strong>Where to store them:</strong> Write them down in a notebook kept in a safe place at home, or use a trusted password manager app.</li>
+              </ul>
+
+              <p class="takeaway"><span class="gold-label">Golden Rule:</span> Avoid clicking <em>"Save password"</em> in the browser when using public, work, or other people's computers.</p>
+            </div>
+          </div>
+
           <div class="visual-column" aria-hidden="true">
             <div class="theme-icon">
               <svg viewBox="0 0 200 200" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
@@ -86,8 +121,8 @@
 
         <footer class="card-footer">
           <div class="footer-students">
-            <span><strong>Estudantes:</strong> Lucas Puton &amp; Bruno H. Colussi</span>
-            <span class="footer-discipline">Projeto Acadêmico — Desafios da Profissão • 2026/2</span>
+            <span data-i18n="students"><strong>Estudantes:</strong> Lucas Puton &amp; Bruno H. Colussi</span>
+            <span class="footer-discipline" data-i18n="discipline">Projeto acadêmico da disciplina de Desafios da Profissão / Prof. Suellen S. Sotille – Semestre 2026/2</span>
           </div>
           <div class="footer-logos">
             <img src="assets/images/logo-atitus.svg" alt="Atitus Educação" class="footer-logo-atitus">
@@ -103,7 +138,8 @@
     <section class="card-section" id="topico-2" data-index="2" data-theme="2">
       <article class="full-card">
         <div class="card-body">
-          <div class="text-column">
+          <!-- Versão em Português -->
+          <div class="text-column lang-content" data-lang-block="pt">
             <h1>Verificação em Duas Etapas (2FA)</h1>
             <p class="objective"><strong>Objetivo:</strong> Impedir que alguém acesse sua conta mesmo que descubra a sua senha.</p>
 
@@ -123,6 +159,27 @@
             </div>
           </div>
 
+          <!-- Versão em Inglês -->
+          <div class="text-column lang-content hidden-lang" data-lang-block="en">
+            <h1>Two-Factor Authentication (2FA)</h1>
+            <p class="objective"><strong>Goal:</strong> Prevent anyone from accessing your account even if they discover your password.</p>
+
+            <div class="prose">
+              <p>It works like a <strong>second lock on your door</strong>. Besides typing your regular password, the service asks for an extra confirmation — usually a temporary code sent to your phone or generated by an app.</p>
+
+              <p><strong>Why use it:</strong> Nowadays, it is essential for social media, banks, email, and especially <strong>public government services</strong> (such as <strong>Gov.br</strong>), preventing strangers from taking out loans or changing data in your name.</p>
+
+              <h3>How to enable it in practice:</h3>
+              <ul>
+                <li>Open the <strong>Settings</strong> or <strong>Security</strong> menu of the app (WhatsApp, Instagram, Google, Gov.br).</li>
+                <li>Look for <strong>"Two-step verification"</strong> or <strong>"Two-factor authentication"</strong> and turn it on.</li>
+                <li>Choose how to receive the code (via an authenticator app, SMS, or recovery email).</li>
+              </ul>
+
+              <p class="takeaway"><span class="gold-label">Golden Rule:</span> Never share this code with anyone, neither by phone call nor via WhatsApp. Banks and public agencies never ask for this code over the phone.</p>
+            </div>
+          </div>
+
           <div class="visual-column" aria-hidden="true">
             <div class="theme-icon">
               <svg viewBox="0 0 200 200" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
@@ -135,8 +192,8 @@
 
         <footer class="card-footer">
           <div class="footer-students">
-            <span><strong>Estudantes:</strong> Lucas Puton &amp; Bruno H. Colussi</span>
-            <span class="footer-discipline">Projeto Acadêmico — Desafios da Profissão • 2026/2</span>
+            <span data-i18n="students"><strong>Estudantes:</strong> Lucas Puton &amp; Bruno H. Colussi</span>
+            <span class="footer-discipline" data-i18n="discipline">Projeto acadêmico da disciplina de Desafios da Profissão / Prof. Suellen S. Sotille – Semestre 2026/2</span>
           </div>
           <div class="footer-logos">
             <img src="assets/images/logo-atitus.svg" alt="Atitus Educação" class="footer-logo-atitus">
@@ -152,7 +209,8 @@
     <section class="card-section" id="topico-3" data-index="3" data-theme="3">
       <article class="full-card">
         <div class="card-body">
-          <div class="text-column">
+          <!-- Versão em Português -->
+          <div class="text-column lang-content" data-lang-block="pt">
             <h1>Como Identificar Links e Endereços Seguros (URLs)</h1>
             <p class="objective"><strong>Objetivo:</strong> Aprender a reconhecer endereços verdadeiros na internet e evitar cair em golpes de sites falsos.</p>
 
@@ -173,6 +231,28 @@
             </div>
           </div>
 
+          <!-- Versão em Inglês -->
+          <div class="text-column lang-content hidden-lang" data-lang-block="en">
+            <h1>How to Identify Safe Links and Web Addresses (URLs)</h1>
+            <p class="objective"><strong>Goal:</strong> Learn to recognize real web addresses and avoid falling for fake website scams.</p>
+
+            <div class="prose">
+              <ul>
+                <li><strong>Link:</strong> Any text, button, or image you click that takes you to another page.</li>
+                <li><strong>URL (Web Address):</strong> The full address of the website shown in the top bar of your browser (e.g., <code>www.gov.br</code>). It is like a store's street address: if even one letter changes, you end up in a different place.</li>
+              </ul>
+
+              <h3>How to check before clicking or typing your data:</h3>
+              <ul>
+                <li><strong>Check the address bar at the top:</strong> Make sure the main name of the site is spelled exactly right. Scammers swap similar letters to trick you (e.g., <code>g0v.br</code> or <code>gov-benefit.com</code> instead of <code>gov.br</code>).</li>
+                <li><strong>Be skeptical of urgent messages:</strong> Deals that look too good to be true, account suspension warnings, or billing alerts via SMS, WhatsApp, and email often hide fake links.</li>
+                <li><strong>When in doubt, don't click:</strong> If you receive a notice from your bank or a store, do not click the link in the message. Open the official app yourself or type the address directly into your browser.</li>
+              </ul>
+
+              <p class="takeaway"><span class="gold-label">Golden Rule:</span> The padlock icon next to the address does not guarantee a website is trustworthy; what guarantees safety is the official address spelled correctly.</p>
+            </div>
+          </div>
+
           <div class="visual-column" aria-hidden="true">
             <div class="theme-icon">
               <svg viewBox="0 0 200 200" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
@@ -185,8 +265,8 @@
 
         <footer class="card-footer">
           <div class="footer-students">
-            <span><strong>Estudantes:</strong> Lucas Puton &amp; Bruno H. Colussi</span>
-            <span class="footer-discipline">Projeto Acadêmico — Desafios da Profissão • 2026/2</span>
+            <span data-i18n="students"><strong>Estudantes:</strong> Lucas Puton &amp; Bruno H. Colussi</span>
+            <span class="footer-discipline" data-i18n="discipline">Projeto acadêmico da disciplina de Desafios da Profissão / Prof. Suellen S. Sotille – Semestre 2026/2</span>
           </div>
           <div class="footer-logos">
             <img src="assets/images/logo-atitus.svg" alt="Atitus Educação" class="footer-logo-atitus">
@@ -202,7 +282,8 @@
     <section class="card-section" id="topico-4" data-index="4" data-theme="4">
       <article class="full-card">
         <div class="card-body">
-          <div class="text-column">
+          <!-- Versão em Português -->
+          <div class="text-column lang-content" data-lang-block="pt">
             <h1>Tipos de Arquivos (Extensões): Saiba o que Está Baixando</h1>
             <p class="objective"><strong>Objetivo:</strong> Identificar o formato dos arquivos antes de abri-los e evitar baixar programas perigosos por engano.</p>
 
@@ -223,6 +304,28 @@
             </div>
           </div>
 
+          <!-- Versão em Inglês -->
+          <div class="text-column lang-content hidden-lang" data-lang-block="en">
+            <h1>File Types (Extensions): Know What You Are Downloading</h1>
+            <p class="objective"><strong>Goal:</strong> Identify file formats before opening them and avoid downloading dangerous programs by mistake.</p>
+
+            <div class="prose">
+              <p>A file extension is the short set of letters at the end of a file's name, right after the dot (e.g., <code>invoice.pdf</code>). It tells you what kind of file it is and which program will open it.</p>
+
+              <h3>Quick guide to the most common formats:</h3>
+              <ul>
+                <li><strong><code>.pdf</code></strong> — Reading document (bills, contracts, receipts). Not easily editable.</li>
+                <li><strong><code>.doc</code> or <code>.docx</code></strong> — Editable text document (Word), used for letters, resumes, and school papers.</li>
+                <li><strong><code>.xls</code> or <code>.xlsx</code></strong> — Spreadsheet (Excel), used for tables, expense tracking, and calculations.</li>
+                <li><strong><code>.ppt</code> or <code>.pptx</code></strong> — Slide presentation (PowerPoint).</li>
+                <li><strong><code>.jpg</code> or <code>.png</code></strong> — Photos and images.</li>
+                <li><strong><code>.zip</code> or <code>.rar</code></strong> — "Closed box" (compressed folder) that bundles multiple files together for easier sending.</li>
+              </ul>
+
+              <p class="takeaway"><span class="gold-label">Golden Rule:</span> If someone sends you a "photo" or "receipt", but the file ends in <strong><code>.exe</code></strong>, <strong><code>.scr</code></strong>, or <strong><code>.bat</code></strong>, <strong>do not open it!</strong> Those formats are installer programs and often hide viruses.</p>
+            </div>
+          </div>
+
           <div class="visual-column" aria-hidden="true">
             <div class="theme-icon">
               <svg viewBox="0 0 200 200" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
@@ -237,8 +340,8 @@
 
         <footer class="card-footer">
           <div class="footer-students">
-            <span><strong>Estudantes:</strong> Lucas Puton &amp; Bruno H. Colussi</span>
-            <span class="footer-discipline">Projeto Acadêmico — Desafios da Profissão • 2026/2</span>
+            <span data-i18n="students"><strong>Estudantes:</strong> Lucas Puton &amp; Bruno H. Colussi</span>
+            <span class="footer-discipline" data-i18n="discipline">Projeto acadêmico da disciplina de Desafios da Profissão / Prof. Suellen S. Sotille – Semestre 2026/2</span>
           </div>
           <div class="footer-logos">
             <img src="assets/images/logo-atitus.svg" alt="Atitus Educação" class="footer-logo-atitus">
@@ -254,7 +357,8 @@
     <section class="card-section" id="topico-5" data-index="5" data-theme="5">
       <article class="full-card">
         <div class="card-body">
-          <div class="text-column">
+          <!-- Versão em Português -->
+          <div class="text-column lang-content" data-lang-block="pt">
             <h1>Limpeza e Espaço da Conta de E-mail</h1>
             <p class="objective"><strong>Objetivo:</strong> Evitar que a sua conta fique cheia e você pare de receber e-mails importantes.</p>
 
@@ -274,6 +378,27 @@
             </div>
           </div>
 
+          <!-- Versão em Inglês -->
+          <div class="text-column lang-content hidden-lang" data-lang-block="en">
+            <h1>Email Account Cleanup and Storage</h1>
+            <p class="objective"><strong>Goal:</strong> Prevent your account from getting full so you don't stop receiving important emails.</p>
+
+            <div class="prose">
+              <p>Free email accounts (such as Gmail, Outlook, and Yahoo) offer a limited amount of free storage. When that limit reaches 100%, <strong>you stop receiving new emails</strong> (including bills, verification codes, and work messages).</p>
+
+              <p><strong>Why space runs out quickly:</strong> In most accounts (especially Google/Gmail), your email storage is <strong>shared</strong> with your phone's photos (Google Photos), cloud files (Drive), and <strong>WhatsApp</strong> chat and video <strong>backups</strong>.</p>
+
+              <h3>How to keep your account working for free:</h3>
+              <ul>
+                <li><strong>Delete old and large emails:</strong> Search your inbox for messages with large attachments or old promotions, and empty your <strong>Trash</strong> and <strong>Spam</strong> folders.</li>
+                <li><strong>Clean up long videos and duplicate photos:</strong> Long videos automatically backed up to the cloud take up most of your storage space.</li>
+                <li><strong>Review your WhatsApp backup:</strong> In WhatsApp settings, disable video inclusion in automatic backups or delete unnecessary videos from chats before backing up.</li>
+              </ul>
+
+              <p class="takeaway"><span class="gold-label">Golden Rule:</span> Whenever you delete files or emails to free up space, remember to <strong>empty the Trash</strong>, as deleted items still take up space until permanently removed.</p>
+            </div>
+          </div>
+
           <div class="visual-column" aria-hidden="true">
             <div class="theme-icon">
               <svg viewBox="0 0 200 200" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
@@ -286,8 +411,8 @@
 
         <footer class="card-footer">
           <div class="footer-students">
-            <span><strong>Estudantes:</strong> Lucas Puton &amp; Bruno H. Colussi</span>
-            <span class="footer-discipline">Projeto Acadêmico — Desafios da Profissão • 2026/2</span>
+            <span data-i18n="students"><strong>Estudantes:</strong> Lucas Puton &amp; Bruno H. Colussi</span>
+            <span class="footer-discipline" data-i18n="discipline">Projeto acadêmico da disciplina de Desafios da Profissão / Prof. Suellen S. Sotille – Semestre 2026/2</span>
           </div>
           <div class="footer-logos">
             <img src="assets/images/logo-atitus.svg" alt="Atitus Educação" class="footer-logo-atitus">
