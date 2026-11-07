@@ -1,12 +1,17 @@
-/* Reset & Variáveis Globais */
+/* ==========================================================================
+   5 LEIS DO NATIVO DIGITAL — DEGRADÊS AGRADÁVEIS EM PÁGINA INTEIRA
+   ========================================================================== */
+
 :root {
-  --primary-color: #2563eb;
-  --primary-hover: #1d4ed8;
-  --bg-color: #0f172a;
-  --card-bg: #1e293b;
-  --text-main: #f8fafc;
-  --text-muted: #94a3b8;
-  --border-color: #334155;
+  --text-white: #ffffff;
+  --text-soft: rgba(255, 255, 255, 0.9);
+  --text-muted: rgba(255, 255, 255, 0.72);
+
+  /* Amarelo Queimado para chamar atenção na Regra de Ouro */
+  --burnt-yellow-bg: #d97706;
+  --burnt-yellow-light: #f59e0b;
+  --burnt-yellow-text: #fde68a;
+
   --font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
@@ -16,120 +21,443 @@
   box-sizing: border-box;
 }
 
-body {
+html, body {
+  height: 100%;
   font-family: var(--font-family);
-  background-color: var(--bg-color);
-  color: var(--text-main);
-  line-height: 1.6;
+  background-color: #1e293b;
+  color: var(--text-white);
+  line-height: 1.65;
+  overflow: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ==========================================================================
+   PALETA DE DEGRADÊS SUAVES DE PÁGINA INTEIRA (TRANSIÇÃO FLUIDA)
+   ========================================================================== */
+.gradient-stage {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.bg-gradient {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* 1. Senhas Fortes — Degradê Ameixa / Coral Suave e Elegante */
+.bg-1 {
+  background:
+    radial-gradient(circle at 80% 35%, rgba(225, 91, 100, 0.35), transparent 55%),
+    linear-gradient(135deg, #2b192e 0%, #61233b 52%, #3a1c32 100%);
+}
+
+/* 2. Verificação 2FA — Degradê Terracota / Âmbar Quente */
+.bg-2 {
+  background:
+    radial-gradient(circle at 80% 35%, rgba(242, 132, 78, 0.32), transparent 55%),
+    linear-gradient(135deg, #2d1e2f 0%, #783b2a 52%, #3b2322 100%);
+}
+
+/* 3. Links e URLs — Degradê Índigo / Azul-Cobalto Suave */
+.bg-3 {
+  background:
+    radial-gradient(circle at 80% 35%, rgba(96, 165, 250, 0.28), transparent 55%),
+    linear-gradient(135deg, #172542 0%, #274c77 52%, #192a45 100%);
+}
+
+/* 4. Extensões de Arquivos — Degradê Violeta-Ardósia / Azul-Noturno */
+.bg-4 {
+  background:
+    radial-gradient(circle at 80% 35%, rgba(139, 92, 246, 0.28), transparent 55%),
+    linear-gradient(135deg, #1e1b3a 0%, #3b336a 52%, #22264b 100%);
+}
+
+/* 5. Espaço no E-mail — Degradê Verde-Oceano / Esmeralda Suave */
+.bg-5 {
+  background:
+    radial-gradient(circle at 80% 35%, rgba(52, 211, 153, 0.25), transparent 55%),
+    linear-gradient(135deg, #132f2c 0%, #1f5c52 52%, #16383b 100%);
+}
+
+body[data-theme="1"] .bg-1,
+body[data-theme="2"] .bg-2,
+body[data-theme="3"] .bg-3,
+body[data-theme="4"] .bg-4,
+body[data-theme="5"] .bg-5 {
+  opacity: 1;
+}
+
+/* ==========================================================================
+   CONTAINER DE ROLAGEM VERTICAL EM PÁGINA INTEIRA (SEM CONTORNOS)
+   ========================================================================== */
+.viewport-container {
+  position: relative;
+  z-index: 10;
+  height: 100vh;
+  height: 100dvh;
+  overflow-y: auto;
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+}
+
+.card-section {
   min-height: 100vh;
+  min-height: 100dvh;
+  width: 100%;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  padding: 3rem 6.5rem 2.5rem 4rem;
+
+  /* Card fora de foco (sai de foco suavemente ao rolar) */
+  opacity: 0.08;
+  filter: blur(12px);
+  transform: scale(0.95);
+  transition:
+    opacity 0.65s ease,
+    filter 0.65s ease,
+    transform 0.65s ease;
+}
+
+/* Somente o Card atual permanece em foco */
+.card-section.is-focused {
+  opacity: 1;
+  filter: blur(0);
+  transform: scale(1);
+}
+
+/* ==========================================================================
+   ESTRUTURA INTERNA DE PÁGINA INTEIRA (SEM BORDAS / SEM CAIXAS)
+   ========================================================================== */
+.full-card {
+  width: 100%;
+  max-width: 1220px;
+  min-height: calc(100vh - 5.5rem);
+  min-height: calc(100dvh - 5.5rem);
   display: flex;
   flex-direction: column;
-}
-
-.container {
-  width: 90%;
-  max-width: 1100px;
-  margin: 0 auto;
-}
-
-/* Header & Nav */
-.header {
-  padding: 1.25rem 0;
-  border-bottom: 1px solid var(--border-color);
-  background: rgba(15, 23, 42, 0.8);
-  backdrop-filter: blur(8px);
-  position: sticky;
-  top: 0;
-  z-index: 100;
-}
-
-.header .container {
-  display: flex;
   justify-content: space-between;
+}
+
+.card-body {
+  display: grid;
+  grid-template-columns: 1.45fr 0.55fr;
+  gap: 4rem;
   align-items: center;
+  margin: auto 0;
 }
 
-.logo {
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: var(--text-main);
-  letter-spacing: -0.5px;
+/* ==========================================================================
+   TIPOGRAFIA E TEXTO EM TÓPICOS
+   ========================================================================== */
+.text-column h1 {
+  font-size: clamp(2rem, 3.2vw, 2.85rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  color: var(--text-white);
+  margin-bottom: 0.65rem;
 }
 
-.nav ul {
+.objective {
+  font-size: 1.12rem;
+  color: var(--text-soft);
+  margin-bottom: 1.75rem;
+  padding-bottom: 1.15rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.objective strong {
+  color: var(--text-white);
+}
+
+.prose {
   display: flex;
-  list-style: none;
+  flex-direction: column;
+  gap: 1.05rem;
+  font-size: 1.05rem;
+  color: var(--text-soft);
+}
+
+.prose p strong,
+.prose li strong {
+  color: var(--text-white);
+  font-weight: 700;
+}
+
+.prose h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-white);
+  margin-top: 0.35rem;
+}
+
+.prose ul {
+  padding-left: 1.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.prose li::marker {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.92em;
+  color: var(--text-white);
+  background: rgba(0, 0, 0, 0.24);
+  padding: 0.14rem 0.45rem;
+  border-radius: 5px;
+}
+
+/* ==========================================================================
+   DESTAQUE EM AMARELO QUEIMADO PARA A REGRA DE OURO
+   ========================================================================== */
+.takeaway {
+  margin-top: 0.75rem;
+  font-size: 1.05rem;
+  color: #fffbeb;
+  line-height: 1.6;
+  background: rgba(217, 119, 6, 0.18);
+  border-left: 4px solid var(--burnt-yellow-light);
+  padding: 0.85rem 1.15rem;
+  border-radius: 0 10px 10px 0;
+}
+
+.gold-label {
+  display: inline-block;
+  font-weight: 800;
+  font-size: 0.88rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  background-color: var(--burnt-yellow-bg);
+  color: #ffffff;
+  padding: 0.15rem 0.55rem;
+  border-radius: 6px;
+  margin-right: 0.45rem;
+  vertical-align: baseline;
+}
+
+/* ==========================================================================
+   ÍCONE DO TEMA SEM TEXTO E SEM CONTORNO
+   ========================================================================== */
+.visual-column {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.theme-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.88);
+}
+
+.theme-icon svg {
+  width: 210px;
+  height: 210px;
+  filter: drop-shadow(0 12px 28px rgba(0, 0, 0, 0.22));
+}
+
+/* ==========================================================================
+   MENU FLUTUANTE DISCRETO
+   ========================================================================== */
+.floating-menu {
+  position: fixed;
+  right: 1.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  background: rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(10px);
+  padding: 0.7rem 0.5rem;
+  border-radius: 999px;
+}
+
+.menu-dot {
+  position: relative;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255, 255, 255, 0.16);
+  color: rgba(255, 255, 255, 0.85);
+  font-family: var(--font-family);
+  font-size: 0.85rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.25s ease;
+}
+
+.menu-dot:hover {
+  background: rgba(255, 255, 255, 0.32);
+  color: #ffffff;
+}
+
+.menu-dot.active {
+  background: #ffffff;
+  color: #1e293b;
+  transform: scale(1.12);
+}
+
+.dot-tooltip {
+  position: absolute;
+  right: calc(100% + 12px);
+  background: rgba(15, 23, 42, 0.88);
+  color: #ffffff;
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 0.35rem 0.7rem;
+  border-radius: 8px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(6px);
+  transition: all 0.2s ease;
+}
+
+.menu-dot:hover .dot-tooltip {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* ==========================================================================
+   RODAPÉ EM TODOS OS CARDS (NOMES DOS ESTUDANTES + LOGOS)
+   ========================================================================== */
+.card-footer {
+  margin-top: 2rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.16);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.footer-students {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  font-size: 0.9rem;
+  color: var(--text-soft);
+}
+
+.footer-discipline {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.footer-logos {
+  display: flex;
+  align-items: center;
   gap: 1.5rem;
 }
 
-.nav a {
-  color: var(--text-muted);
-  text-decoration: none;
-  font-weight: 500;
-  transition: color 0.2s ease;
+.footer-logo-atitus {
+  height: 28px;
+  width: auto;
+  filter: brightness(0) invert(1);
+  opacity: 0.92;
 }
 
-.nav a:hover {
-  color: var(--text-main);
+.footer-logo-curso {
+  height: 26px;
+  width: auto;
+  opacity: 0.92;
 }
 
-/* Hero Section */
-.hero {
-  padding: 6rem 0 4rem;
-  text-align: center;
+/* ==========================================================================
+   RESPONSIVIDADE (TABLET E CELULAR)
+   ========================================================================== */
+@media (max-width: 960px) {
+  .card-section {
+    padding: 2rem 1.75rem 5.5rem 1.75rem;
+  }
+
+  .full-card {
+    min-height: calc(100dvh - 7.5rem);
+  }
+
+  .card-body {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .visual-column {
+    order: -1;
+    justify-content: flex-start;
+  }
+
+  .theme-icon svg {
+    width: 72px;
+    height: 72px;
+  }
+
+  .floating-menu {
+    right: auto;
+    top: auto;
+    bottom: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    flex-direction: row;
+    padding: 0.45rem 0.75rem;
+    gap: 0.65rem;
+  }
+
+  .dot-tooltip {
+    display: none;
+  }
 }
 
-.badge {
-  display: inline-block;
-  padding: 0.35rem 0.85rem;
-  border-radius: 9999px;
-  background-color: rgba(37, 99, 235, 0.15);
-  color: #60a5fa;
-  border: 1px solid rgba(37, 99, 235, 0.3);
-  font-size: 0.875rem;
-  font-weight: 600;
-  margin-bottom: 1.5rem;
-}
+@media (max-width: 600px) {
+  .card-section {
+    padding: 1.5rem 1.25rem 5rem 1.25rem;
+  }
 
-.hero h2 {
-  font-size: 2.5rem;
-  font-weight: 700;
-  line-height: 1.2;
-  margin-bottom: 1rem;
-  letter-spacing: -1px;
-}
+  .text-column h1 {
+    font-size: 1.55rem;
+  }
 
-.hero p {
-  font-size: 1.15rem;
-  color: var(--text-muted);
-  max-width: 600px;
-  margin: 0 auto;
-}
+  .objective {
+    font-size: 0.96rem;
+    margin-bottom: 1.15rem;
+    padding-bottom: 0.85rem;
+  }
 
-/* Content Sections */
-.section {
-  padding: 4rem 0;
-  background: var(--card-bg);
-  margin: 2rem 0;
-  border-radius: 12px;
-  border: 1px solid var(--border-color);
-}
+  .prose {
+    font-size: 0.93rem;
+    gap: 0.8rem;
+  }
 
-.section h2 {
-  margin-bottom: 1rem;
-  font-size: 1.75rem;
-}
+  .takeaway {
+    font-size: 0.94rem;
+    padding: 0.75rem 0.95rem;
+  }
 
-.section p {
-  color: var(--text-muted);
-}
+  .theme-icon svg {
+    width: 56px;
+    height: 56px;
+  }
 
-/* Footer */
-.footer {
-  margin-top: auto;
-  padding: 2rem 0;
-  text-align: center;
-  border-top: 1px solid var(--border-color);
-  color: var(--text-muted);
-  font-size: 0.875rem;
+  .card-footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
 }

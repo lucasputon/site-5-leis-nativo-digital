@@ -4,48 +4,300 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>5 Leis do Nativo Digital</title>
-  <link rel="stylesheet" href="css/style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
-  <header class="header">
-    <div class="container">
-      <h1 class="logo">5 Leis do Nativo Digital</h1>
-      <nav class="nav">
-        <ul>
-          <li><a href="#inicio">Início</a></li>
-          <li><a href="#sobre">Sobre</a></li>
-          <li><a href="#leis">As Leis</a></li>
-          <li><a href="#contato">Contato</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+<body data-theme="1">
 
-  <main>
-    <section id="inicio" class="hero">
-      <div class="container hero-content">
-        <span class="badge">Projeto em Construção</span>
-        <h2>Bem-vindo ao projeto 5 Leis do Nativo Digital</h2>
-        <p>Estrutura base pronta para o desenvolvimento colaborativo.</p>
-      </div>
+  <!-- Camadas de Degradê de Página Inteira (Transição Suave entre os 5 Temas) -->
+  <div class="gradient-stage" aria-hidden="true">
+    <div class="bg-gradient bg-1"></div>
+    <div class="bg-gradient bg-2"></div>
+    <div class="bg-gradient bg-3"></div>
+    <div class="bg-gradient bg-4"></div>
+    <div class="bg-gradient bg-5"></div>
+  </div>
+
+  <!-- Menu Flutuante Minimalista -->
+  <nav class="floating-menu" aria-label="Navegação entre os 5 tópicos">
+    <button class="menu-dot active" data-target="topico-1" data-theme="1" aria-label="1. Senhas Fortes">
+      <span class="dot-num">1</span>
+      <span class="dot-tooltip">Senhas Fortes</span>
+    </button>
+    <button class="menu-dot" data-target="topico-2" data-theme="2" aria-label="2. Verificação em Duas Etapas">
+      <span class="dot-num">2</span>
+      <span class="dot-tooltip">2 Fatores (2FA)</span>
+    </button>
+    <button class="menu-dot" data-target="topico-3" data-theme="3" aria-label="3. Links e URLs">
+      <span class="dot-num">3</span>
+      <span class="dot-tooltip">Links e URLs</span>
+    </button>
+    <button class="menu-dot" data-target="topico-4" data-theme="4" aria-label="4. Extensões de Arquivos">
+      <span class="dot-num">4</span>
+      <span class="dot-tooltip">Extensões</span>
+    </button>
+    <button class="menu-dot" data-target="topico-5" data-theme="5" aria-label="5. Espaço no E-mail">
+      <span class="dot-num">5</span>
+      <span class="dot-tooltip">Espaço no E-mail</span>
+    </button>
+  </nav>
+
+  <!-- Container de Página Inteira com Rolagem Vertical Suave -->
+  <main class="viewport-container" id="viewport">
+
+    <!-- =================================================================
+         CARD 1: SENHAS FORTES E ÚNICAS
+         ================================================================= -->
+    <section class="card-section is-focused" id="topico-1" data-index="1" data-theme="1">
+      <article class="full-card">
+        <div class="card-body">
+          <div class="text-column">
+            <h1>Senhas Fortes e Únicas</h1>
+            <p class="objective"><strong>Objetivo:</strong> Proteger suas contas pessoais e bancárias contra invasões.</p>
+
+            <div class="prose">
+              <p>A senha é a chave da sua casa digital. Uma senha forte mistura diferentes tipos de caracteres para que ninguém (nem programas de computador) consiga adivinhar.</p>
+
+              <h3>Como criar e cuidar da sua senha:</h3>
+              <ul>
+                <li><strong>Misture tudo:</strong> Combine letras maiúsculas (<code>A-Z</code>), minúsculas (<code>a-z</code>), números (<code>0-9</code>) e símbolos (<code>!</code>, <code>@</code>, <code>#</code>, <code>$</code>). <em>Exemplo: em vez de <code>Maria1980</code>, use algo como <code>M@ria#Sol26!</code></em>.</li>
+                <li><strong>Evite dados óbvios:</strong> Nunca use datas de nascimento, nomes de filhos, placas de carro ou sequências como <code>123456</code>.</li>
+                <li><strong>Não repita a mesma senha:</strong> Se você usa a mesma senha em tudo e um site simples sofrer um vazamento, os golpistas terão acesso ao seu e-mail e ao seu banco.</li>
+                <li><strong>Onde guardar:</strong> Anote em um caderno guardado em local seguro em casa ou use um aplicativo cofre de senhas confiável.</li>
+              </ul>
+
+              <p class="takeaway"><span class="gold-label">Regra de Ouro:</span> Evite clicar em <em>"Salvar senha"</em> no navegador quando estiver usando computadores públicos, do trabalho ou de outras pessoas.</p>
+            </div>
+          </div>
+
+          <div class="visual-column" aria-hidden="true">
+            <div class="theme-icon">
+              <svg viewBox="0 0 200 200" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="42" y="88" width="116" height="86" rx="16" />
+                <path d="M66 88V62a34 34 0 0 1 68 0v26" />
+                <circle cx="100" cy="126" r="10" />
+                <path d="M100 136v16" />
+              </svg>
+            </div>
+          </div>
+        </div>
+
+        <footer class="card-footer">
+          <div class="footer-students">
+            <span><strong>Estudantes:</strong> Lucas Puton &amp; Bruno H. Colussi</span>
+            <span class="footer-discipline">Projeto Acadêmico — Desafios da Profissão • 2026/2</span>
+          </div>
+          <div class="footer-logos">
+            <img src="assets/images/logo-atitus.svg" alt="Atitus Educação" class="footer-logo-atitus">
+            <img src="assets/images/logo-curso.png" alt="Ciência da Computação" class="footer-logo-curso">
+          </div>
+        </footer>
+      </article>
     </section>
 
-    <section id="sobre" class="section">
-      <div class="container">
-        <h2>Sobre o Projeto</h2>
-        <p>Este espaço será destinado à apresentação e detalhamento dos conteúdos.</p>
-      </div>
+    <!-- =================================================================
+         CARD 2: VERIFICAÇÃO EM DUAS ETAPAS (2FA)
+         ================================================================= -->
+    <section class="card-section" id="topico-2" data-index="2" data-theme="2">
+      <article class="full-card">
+        <div class="card-body">
+          <div class="text-column">
+            <h1>Verificação em Duas Etapas (2FA)</h1>
+            <p class="objective"><strong>Objetivo:</strong> Impedir que alguém acesse sua conta mesmo que descubra a sua senha.</p>
+
+            <div class="prose">
+              <p>Funciona como uma <strong>segunda tranca na porta</strong>. Além de digitar sua senha normal, o serviço pede uma confirmação extra — geralmente um código temporário enviado para o seu celular ou gerado em um aplicativo.</p>
+
+              <p><strong>Por que usar:</strong> Hoje em dia, é indispensável em redes sociais, bancos, e-mails e principalmente em <strong>serviços públicos</strong> (como a conta <strong>Gov.br</strong>), evitando que terceiros façam empréstimos ou alterem dados em seu nome.</p>
+
+              <h3>Como usar na prática:</h3>
+              <ul>
+                <li>Acesse o menu de <strong>Configurações</strong> ou <strong>Segurança</strong> do aplicativo (WhatsApp, Instagram, Google, Gov.br).</li>
+                <li>Procure pela opção <strong>"Verificação em duas etapas"</strong> ou <strong>"Autenticação de dois fatores"</strong> e ative-a.</li>
+                <li>Escolha como receber o código (por aplicativo autenticador, SMS ou e-mail de recuperação).</li>
+              </ul>
+
+              <p class="takeaway"><span class="gold-label">Regra de Ouro:</span> Jamais informe esse código a ninguém, nem por telefone, nem por WhatsApp. Bancos e órgãos públicos nunca pedem esse código em ligações.</p>
+            </div>
+          </div>
+
+          <div class="visual-column" aria-hidden="true">
+            <div class="theme-icon">
+              <svg viewBox="0 0 200 200" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M100 24L38 52v46c0 42 26.5 78.5 62 90 35.5-11.5 62-48 62-90V52L100 24z" />
+                <polyline points="74 104 92 122 128 84" stroke-width="8" />
+              </svg>
+            </div>
+          </div>
+        </div>
+
+        <footer class="card-footer">
+          <div class="footer-students">
+            <span><strong>Estudantes:</strong> Lucas Puton &amp; Bruno H. Colussi</span>
+            <span class="footer-discipline">Projeto Acadêmico — Desafios da Profissão • 2026/2</span>
+          </div>
+          <div class="footer-logos">
+            <img src="assets/images/logo-atitus.svg" alt="Atitus Educação" class="footer-logo-atitus">
+            <img src="assets/images/logo-curso.png" alt="Ciência da Computação" class="footer-logo-curso">
+          </div>
+        </footer>
+      </article>
     </section>
+
+    <!-- =================================================================
+         CARD 3: LINKS E ENDEREÇOS SEGUROS (URLS)
+         ================================================================= -->
+    <section class="card-section" id="topico-3" data-index="3" data-theme="3">
+      <article class="full-card">
+        <div class="card-body">
+          <div class="text-column">
+            <h1>Como Identificar Links e Endereços Seguros (URLs)</h1>
+            <p class="objective"><strong>Objetivo:</strong> Aprender a reconhecer endereços verdadeiros na internet e evitar cair em golpes de sites falsos.</p>
+
+            <div class="prose">
+              <ul>
+                <li><strong>Link:</strong> É qualquer texto, botão ou imagem em que você clica e é levado para outra página.</li>
+                <li><strong>URL (Endereço):</strong> É o caminho completo do site que aparece na barra superior do navegador (ex.: <code>www.gov.br</code>). É como o endereço da rua de uma loja: se mudar uma letra, você vai parar em outro lugar.</li>
+              </ul>
+
+              <h3>Como verificar antes de clicar ou digitar seus dados:</h3>
+              <ul>
+                <li><strong>Olhe a barra de endereços no topo:</strong> Confira se o nome principal do site está escrito exatamente certo. Golpistas trocam letras para enganar (ex.: <code>g0v.br</code> ou <code>gov-beneficio.com</code> em vez de <code>gov.br</code>).</li>
+                <li><strong>Desconfie de mensagens urgentes:</strong> Promoções boas demais, avisos de bloqueio de conta ou cobranças recebidas por SMS, WhatsApp e e-mail costumam conter links falsos.</li>
+                <li><strong>Na dúvida, não clique:</strong> Se receber um aviso do seu banco ou de uma loja, não clique no link da mensagem. Abra você mesmo o aplicativo oficial ou digite o endereço diretamente no navegador.</li>
+              </ul>
+
+              <p class="takeaway"><span class="gold-label">Regra de Ouro:</span> O cadeado ao lado do endereço não garante que o site é honesto; o que garante é o endereço oficial escrito corretamente.</p>
+            </div>
+          </div>
+
+          <div class="visual-column" aria-hidden="true">
+            <div class="theme-icon">
+              <svg viewBox="0 0 200 200" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M84 116a28 28 0 0 0 40 0l24-24a28 28 0 0 0-40-40l-14 14" />
+                <path d="M116 84a28 28 0 0 0-40 0l-24 24a28 28 0 0 0 40 40l14-14" />
+              </svg>
+            </div>
+          </div>
+        </div>
+
+        <footer class="card-footer">
+          <div class="footer-students">
+            <span><strong>Estudantes:</strong> Lucas Puton &amp; Bruno H. Colussi</span>
+            <span class="footer-discipline">Projeto Acadêmico — Desafios da Profissão • 2026/2</span>
+          </div>
+          <div class="footer-logos">
+            <img src="assets/images/logo-atitus.svg" alt="Atitus Educação" class="footer-logo-atitus">
+            <img src="assets/images/logo-curso.png" alt="Ciência da Computação" class="footer-logo-curso">
+          </div>
+        </footer>
+      </article>
+    </section>
+
+    <!-- =================================================================
+         CARD 4: TIPOS DE ARQUIVOS (EXTENSÕES)
+         ================================================================= -->
+    <section class="card-section" id="topico-4" data-index="4" data-theme="4">
+      <article class="full-card">
+        <div class="card-body">
+          <div class="text-column">
+            <h1>Tipos de Arquivos (Extensões): Saiba o que Está Baixando</h1>
+            <p class="objective"><strong>Objetivo:</strong> Identificar o formato dos arquivos antes de abri-los e evitar baixar programas perigosos por engano.</p>
+
+            <div class="prose">
+              <p>A extensão são as letrinhas no final do nome de um arquivo, depois do ponto (ex.: <code>boleto.pdf</code>). Ela indica qual é o tipo daquele arquivo e qual programa vai abri-lo.</p>
+
+              <h3>Guia rápido dos formatos mais comuns:</h3>
+              <ul>
+                <li><strong><code>.pdf</code></strong> — Documento de leitura (boletos, contratos, comprovantes). Não costuma ser editável facilmente.</li>
+                <li><strong><code>.doc</code> ou <code>.docx</code></strong> — Texto editável (Word), usado para cartas, currículos e trabalhos.</li>
+                <li><strong><code>.xls</code> ou <code>.xlsx</code></strong> — Planilha (Excel), usada para tabelas, controle de gastos e cálculos.</li>
+                <li><strong><code>.ppt</code> ou <code>.pptx</code></strong> — Apresentação de slides (PowerPoint).</li>
+                <li><strong><code>.jpg</code> ou <code>.png</code></strong> — Fotos e imagens.</li>
+                <li><strong><code>.zip</code> ou <code>.rar</code></strong> — "Caixa fechada" (arquivo compactado) que reúne vários arquivos juntos para facilitar o envio.</li>
+              </ul>
+
+              <p class="takeaway"><span class="gold-label">Regra de Ouro:</span> Se alguém te enviar uma "foto" ou "comprovante", mas o arquivo terminar em <strong><code>.exe</code></strong>, <strong><code>.scr</code></strong> ou <strong><code>.bat</code></strong>, <strong>não abra!</strong> Esses formatos são programas instaladores e geralmente escondem vírus.</p>
+            </div>
+          </div>
+
+          <div class="visual-column" aria-hidden="true">
+            <div class="theme-icon">
+              <svg viewBox="0 0 200 200" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M116 28H56a12 12 0 0 0-12 12v120a12 12 0 0 0 12 12h88a12 12 0 0 0 12-12V68L116 28z" />
+                <polyline points="116 28 116 68 156 68" />
+                <line x1="72" y1="104" x2="128" y2="104" />
+                <line x1="72" y1="130" x2="112" y2="130" />
+              </svg>
+            </div>
+          </div>
+        </div>
+
+        <footer class="card-footer">
+          <div class="footer-students">
+            <span><strong>Estudantes:</strong> Lucas Puton &amp; Bruno H. Colussi</span>
+            <span class="footer-discipline">Projeto Acadêmico — Desafios da Profissão • 2026/2</span>
+          </div>
+          <div class="footer-logos">
+            <img src="assets/images/logo-atitus.svg" alt="Atitus Educação" class="footer-logo-atitus">
+            <img src="assets/images/logo-curso.png" alt="Ciência da Computação" class="footer-logo-curso">
+          </div>
+        </footer>
+      </article>
+    </section>
+
+    <!-- =================================================================
+         CARD 5: LIMPEZA E ESPAÇO DA CONTA DE E-MAIL
+         ================================================================= -->
+    <section class="card-section" id="topico-5" data-index="5" data-theme="5">
+      <article class="full-card">
+        <div class="card-body">
+          <div class="text-column">
+            <h1>Limpeza e Espaço da Conta de E-mail</h1>
+            <p class="objective"><strong>Objetivo:</strong> Evitar que a sua conta fique cheia e você pare de receber e-mails importantes.</p>
+
+            <div class="prose">
+              <p>Contas gratuitas (como Gmail, Outlook e Yahoo) oferecem um espaço limitado de armazenamento gratuito. Quando esse limite chega a 100%, <strong>você deixa de receber novos e-mails</strong> (como boletos, códigos de acesso e mensagens de trabalho).</p>
+
+              <p><strong>Por que o espaço acaba rápido:</strong> Na maioria das contas (especialmente no Google/Gmail), o espaço do e-mail é <strong>dividido</strong> com as fotos do celular (Google Fotos), arquivos salvos na nuvem (Drive) e as cópias de segurança (<strong>backups</strong>) das conversas e vídeos do <strong>WhatsApp</strong>.</p>
+
+              <h3>Como manter sua conta funcionando sem pagar nada:</h3>
+              <ul>
+                <li><strong>Apague e-mails pesados e antigos:</strong> Pesquise na caixa de entrada por mensagens com anexos grandes, propagandas antigas e esvazie as pastas <strong>Lixeira</strong> e <strong>Spam</strong>.</li>
+                <li><strong>Limpe vídeos e fotos duplicadas:</strong> Vídeos longos salvos automaticamente na nuvem consomem a maior parte do espaço.</li>
+                <li><strong>Revise o backup do WhatsApp:</strong> Nas configurações do WhatsApp, desative a inclusão de vídeos no backup automático ou apague vídeos desnecessários das conversas antes do backup.</li>
+              </ul>
+
+              <p class="takeaway"><span class="gold-label">Regra de Ouro:</span> Sempre que apagar arquivos ou e-mails para liberar espaço, lembre-se de <strong>esvaziar a Lixeira</strong>, pois os itens continuam ocupando espaço enquanto estiverem lá.</p>
+            </div>
+          </div>
+
+          <div class="visual-column" aria-hidden="true">
+            <div class="theme-icon">
+              <svg viewBox="0 0 200 200" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="28" y="48" width="144" height="104" rx="14" />
+                <polyline points="28,60 100,112 172,60" />
+              </svg>
+            </div>
+          </div>
+        </div>
+
+        <footer class="card-footer">
+          <div class="footer-students">
+            <span><strong>Estudantes:</strong> Lucas Puton &amp; Bruno H. Colussi</span>
+            <span class="footer-discipline">Projeto Acadêmico — Desafios da Profissão • 2026/2</span>
+          </div>
+          <div class="footer-logos">
+            <img src="assets/images/logo-atitus.svg" alt="Atitus Educação" class="footer-logo-atitus">
+            <img src="assets/images/logo-curso.png" alt="Ciência da Computação" class="footer-logo-curso">
+          </div>
+        </footer>
+      </article>
+    </section>
+
   </main>
-
-  <footer class="footer">
-    <div class="container">
-      <p>&copy; 2026 - 5 Leis do Nativo Digital. Todos os direitos reservados.</p>
-    </div>
-  </footer>
 
   <script src="js/main.js"></script>
 </body>
